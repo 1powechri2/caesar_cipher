@@ -28,8 +28,8 @@ class CaesarCipherTest < Minitest::Test
    assert_equal 5, @cipher.message.length
  end
 
- # def test_shifting_uppercase
- #   @ciphe.fill_message_array('PiZzA')
- #   assert
- # end
+ def test_shifting_uppercase
+   @cipher_shift_3.fill_message_array('PiZzA')
+   assert @messages.include? 67
+ end
 end
