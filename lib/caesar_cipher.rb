@@ -1,11 +1,13 @@
 class CaesarCipher
 
   attr_reader :shift,
-              :message
+              :message,
+              :message_shift
 
   def initialize(shift = 0)
-    @shift   = shift
-    @message = nil
+    @shift         = shift
+    @message       = nil
+    @message_shift = nil
   end
 
   def fill_message_array(arg)
@@ -13,17 +15,40 @@ class CaesarCipher
     to_ord(@message)
   end
 
-  def to_ord(arg)
-    @message = arg.map do |letter|
-      if letter.upcase
-        shift_upcase(letter)
-      elsif letter.downcase
-        shift_downcase(letter)
+  def to_ord(message)
+    @message = message.map {|letter| letter.ord}
+    shift_ord(@message)
+  end
+
+  def shift_ord(ord_message)
+    @message_shift = ord_message.map do |ord_number|
+      if ord_number > 64 && ord_number < 91
+        shift_upcase(ord_number)
+      elsif ord_number > 96 && ord_number < 123
+        shift_downcase(ord_number)
       end
     end
   end
 
-  def shift_upcase(arg)
-    if arg < blob
+  def shift_upcase(ord_number)
+    ord_number += @shift
+    if ord_number < 65
+      ord_number + 26
+    elsif ord_number > 90
+      ord_number - 26
+    else
+      ord_number
+    end
+  end
+
+  def shift_downcase(ord_number)
+    ord_number += @shift
+    if ord_number < 97
+      ord_number + 26
+    elsif ord_number > 122
+      ord_number - 26
+    else
+      ord_number
+    end
   end
 end

@@ -28,8 +28,25 @@ class CaesarCipherTest < Minitest::Test
    assert_equal 5, @cipher.message.length
  end
 
- def test_shifting_uppercase
+ def test_letters_to_ordinal_integers
+   @cipher.fill_message_array('PiZzA')
+   assert_equal [80, 105, 90, 122, 65], @cipher.message
+ end
+
+ def test_uppercase_shift
+   z_upcase_ord = @cipher_shift_3.shift_upcase(90)
+   assert_equal 67, z_upcase_ord
+ end
+
+ def test_downcase_shift
+   z_downcase_ord = @cipher_shift_3.shift_downcase(122)
+   assert_equal 99, z_downcase_ord
+ end
+
+ def test_shift_ord
    @cipher_shift_3.fill_message_array('PiZzA')
-   assert @messages.include? 67
+   actual   = @cipher_shift_3.message_shift
+   expected = [83, 108, 67, 99, 68]
+   assert_equal expected, actual 
  end
 end
