@@ -26,6 +26,8 @@ class CaesarCipher
         shift_upcase(ord_number)
       elsif ord_number > 96 && ord_number < 123
         shift_downcase(ord_number)
+      else
+        ord_number
       end
     end
   end
@@ -51,4 +53,8 @@ class CaesarCipher
       ord_number
     end
   end
+
+  def back_to_chars
+    @message_shift.map {|ord| ord.chr}.join
+  end 
 end

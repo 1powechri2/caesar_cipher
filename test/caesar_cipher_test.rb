@@ -47,6 +47,20 @@ class CaesarCipherTest < Minitest::Test
    @cipher_shift_3.fill_message_array('PiZzA')
    actual   = @cipher_shift_3.message_shift
    expected = [83, 108, 67, 99, 68]
-   assert_equal expected, actual 
+   assert_equal expected, actual
+ end
+
+ def test_non_alphabet_chars_do_not_get_changed
+   @cipher_shift_3.fill_message_array('.?! +*>')
+   actual   = @cipher_shift_3.message_shift
+   expected = [46, 63, 33, 32, 43, 42, 62]
+   assert_equal expected, actual
+ end
+
+ def test_ord_back_to_chars
+   @cipher_shift_3.fill_message_array('Life is but a dream.')
+   actual   = @cipher_shift_3.back_to_chars
+   expected = 'Olih lv exw d guhdp.'
+   assert_equal expected, actual
  end
 end
