@@ -6,7 +6,7 @@ require 'pry'
 class CaesarCipherTest < Minitest::Test
 
  def setup
-  @cipher = CaesarCipher.new
+  @cipher         = CaesarCipher.new
   @cipher_shift_3 = CaesarCipher.new(3)
  end
 
