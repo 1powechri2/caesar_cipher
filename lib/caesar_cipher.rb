@@ -17,7 +17,71 @@ class CaesarCipher
 
   def fill_message_array(arg)
     @message = arg.chars
+    def shift_downcase(ord_number)
+      ord_number += @shift
+      if ord_number < 97
+        ord_number + 26
+      elsif ord_number > 122
+        ord_number - 26
+      else
+        ord_number
+      end
+    end
+    def shift_downcase(ord_number)
+      ord_number += @shift
+      if ord_number < 97
+        ord_number + 26
+      elsif ord_number > 122
+        ord_number - 26
+      else
+        ord_number
+      end
+    end
+    def shift_downcase(ord_number)
+      ord_number += @shift
+      if ord_number < 97
+        ord_number + 26
+      elsif ord_number > 122
+        ord_number - 26
+      else
+        ord_number
+      end
+    end
+    def shift_downcase(ord_number)
+      ord_number += @shift
+      if ord_number < 97
+        ord_number + 26
+      elsif ord_number > 122
+        ord_number - 26
+      else
+        ord_number
+      end
+    end
     to_ord(@message)
+  end
+
+
+  def shift_downcase(ord_number)
+    ord_number += @shift
+    if ord_number < 97
+      ord_number + 26
+    elsif ord_number > 122
+      ord_number - 26
+    else
+      ord_number
+    end
+  end
+
+
+  def shift_downcase(ord_number)
+    ord_number += @shift
+    if ord_number < 97
+      ord_number + 26
+    elsif ord_number > 122
+      ord_number - 26
+    else
+      ord_number
+    end
   end
 
 
@@ -60,6 +124,18 @@ class CaesarCipher
       ord_number
     end
   end
+
+  def shift_downcase(ord_number)
+    ord_number += @shift
+    if ord_number < 97
+      ord_number + 26
+    elsif ord_number > 122
+      ord_number - 26
+    else
+      ord_number
+    end
+  end
+
 
   def back_to_chars
     @message_shift.map {|ord| ord.chr}.join
