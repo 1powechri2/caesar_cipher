@@ -55,7 +55,7 @@ class CaesarCipher
         ord_number - 26
       else
         ord_number
-      end
+      endΩ
     end
     to_ord(@message)
   end
@@ -85,6 +85,22 @@ class CaesarCipher
   end
 
 
+  Finance team
+  -Charles
+  -Lisa
+  -John
+  <<<<<<< HEAD
+  -Stacy
+  -Alexander
+
+  Marketing team
+  - Collins
+  - Linda
+  - Patricia
+  - Morgan
+  - Amanda
+  =======
+  >>>>>>> master
 
   def to_ord(message)
     @message = message.map {|letter| letter.ord}
