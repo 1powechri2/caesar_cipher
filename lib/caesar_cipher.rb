@@ -11,9 +11,16 @@ class CaesarCipher
   end
 
   def fill_message_array(arg)
+    @shift = nil
+    to_ord(@message_shift)
+  end
+
+  def fill_message_array(arg)
     @message = arg.chars
     to_ord(@message)
   end
+
+
 
   def to_ord(message)
     @message = message.map {|letter| letter.ord}
@@ -56,5 +63,5 @@ class CaesarCipher
 
   def back_to_chars
     @message_shift.map {|ord| ord.chr}.join
-  end 
+  end
 end
